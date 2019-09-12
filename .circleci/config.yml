@@ -1,0 +1,153 @@
+# Java Maven CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+version: 2.1
+
+orbs:
+  terraform-orb: bankrate/terraform@1.1.2
+  aws-cli: circleci/aws-cli@0.1.16
+
+jobs:
+  build-callback: # runs not using Workflows must have a `build` job as entry point
+
+    working_directory: ~/project # directory where steps will run
+
+    docker:
+      - image: circleci/openjdk:8
+
+    steps:
+      - checkout # check out source code to working directory
+
+      - restore_cache:
+          key: lambda-java-counter-callback-{{ checksum "lambda-java-counter-callback/pom.xml" }}
+
+      - run: cd lambda-java-counter-callback && mvn dependency:go-offline
+
+      - save_cache: # saves the project dependencies
+          paths:
+            - ~/.m2
+          key: lambda-java-counter-callback-{{ checksum "lambda-java-counter-callback/pom.xml" }}
+
+      - run: cd lambda-java-counter-callback && mvn package # run the actual tests
+
+      - store_test_results:
+          path: lambda-java-counter-callback/target/surefire-reports
+
+      - store_artifacts:
+          path: lambda-java-counter-callback/target/lambda-java-counter-callback-1.0-SNAPSHOT.jar
+
+      - persist_to_workspace:
+          root: lambda-java-counter-callback/target/
+          paths:
+            - lambda-java-counter-callback-1.0-SNAPSHOT.jar
+  build-info: # runs not using Workflows must have a `build` job as entry point
+
+    working_directory: ~/project # directory where steps will run
+
+    docker:
+      - image: circleci/openjdk:8
+
+    steps:
+      - checkout # check out source code to working directory
+
+      - restore_cache:
+          key: lambda-java-counter-info-{{ checksum "lambda-java-counter-info/pom.xml" }}
+
+      - run: cd lambda-java-counter-info && mvn dependency:go-offline
+
+      - save_cache: # saves the project dependencies
+          paths:
+            - ~/.m2
+          key: lambda-java-counter-info-{{ checksum "lambda-java-counter-info/pom.xml" }}
+
+      - run: cd lambda-java-counter-info && mvn package # run the actual tests
+
+      - store_test_results:
+          path: lambda-java-counter-info/target/surefire-reports
+
+      - store_artifacts:
+          path: lambda-java-counter-info/target/lambda-java-counter-info-1.0-SNAPSHOT.jar
+
+      - persist_to_workspace:
+          root: lambda-java-counter-info/target/
+          paths:
+            - lambda-java-counter-info-1.0-SNAPSHOT.jar
+
+  build-report: # runs not using Workflows must have a `build` job as entry point
+
+    working_directory: ~/project # directory where steps will run
+
+    docker:
+      - image: circleci/openjdk:8
+
+    steps:
+      - checkout # check out source code to working directory
+
+      - restore_cache:
+          key: lambda-java-counter-report-{{ checksum "lambda-java-counter-report/pom.xml" }}
+
+      - run: cd lambda-java-counter-report && mvn dependency:go-offline
+
+      - save_cache: # saves the project dependencies
+          paths:
+            - ~/.m2
+          key: lambda-java-counter-report-{{ checksum "lambda-java-counter-report/pom.xml" }}
+
+      - run: cd lambda-java-counter-report && mvn package # run the actual tests
+
+      - store_test_results:
+          path:  lambda-java-counter-report/target/surefire-reports
+
+      - store_artifacts:
+          path: lambda-java-counter-report/target/lambda-java-counter-report-1.0-SNAPSHOT.jar
+
+      - persist_to_workspace:
+          root: lambda-java-counter-report/target/
+          paths:
+            - lambda-java-counter-report-1.0-SNAPSHOT.jar
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - build-callback
+      - build-info
+      - build-report
+      - terraform-orb/init:
+          terraform_version: 0.12.8
+          attach-workspace: true
+          filters:
+            branches:
+              only: master
+          infrastructure_dir: terraform
+          name: tf-init
+      - terraform-orb/plan:
+          terraform_version: 0.12.8
+          environment: prod
+          attach-workspace: true
+          filters:
+            branches:
+              only: master
+          infrastructure_dir: terraform
+          name: tf-plan
+          requires:
+            - tf-init
+            - build-callback
+            - build-info
+            - build-report
+      - approve_deploy:
+          requires:
+            - tf-plan
+          type: approval
+      - terraform-orb/apply:
+          terraform_version: 0.12.8
+          environment: prod
+          auto_approve: true
+          attach-workspace: true
+          filters:
+            branches:
+              only: master
+          infrastructure_dir: terraform
+          name: tf-apply
+          requires:
+            - approve_deploy
