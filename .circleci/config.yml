@@ -121,6 +121,7 @@ workflows:
               only: master
           infrastructure_dir: terraform
           name: tf-init
+          save-workspace: true
       - terraform-orb/plan:
           terraform_version: 0.12.8
           environment: prod
