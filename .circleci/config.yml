@@ -35,12 +35,12 @@ jobs:
           path: lambda-java-counter-callback/target/surefire-reports
 
       - store_artifacts:
-          path: lambda-java-counter-callback/target/lambda-java-counter-callback-1.0-SNAPSHOT.jar
+          path: ./lambda-java-counter-callback-1.0-SNAPSHOT.jar
 
       - persist_to_workspace:
-          root: lambda-java-counter-callback/target/
+          root: .
           paths:
-            - lambda-java-counter-callback-1.0-SNAPSHOT.jar
+            - ./lambda-java-counter-callback-1.0-SNAPSHOT.jar
   build-info: # runs not using Workflows must have a `build` job as entry point
 
     working_directory: ~/project # directory where steps will run
@@ -67,12 +67,12 @@ jobs:
           path: lambda-java-counter-info/target/surefire-reports
 
       - store_artifacts:
-          path: lambda-java-counter-info/target/lambda-java-counter-info-1.0-SNAPSHOT.jar
+          path: ./lambda-java-counter-info-1.0-SNAPSHOT.jar
 
       - persist_to_workspace:
-          root: lambda-java-counter-info/target/
+          root: .
           paths:
-            - lambda-java-counter-info-1.0-SNAPSHOT.jar
+            - ./lambda-java-counter-info-1.0-SNAPSHOT.jar
 
   build-report: # runs not using Workflows must have a `build` job as entry point
 
@@ -100,12 +100,12 @@ jobs:
           path:  lambda-java-counter-report/target/surefire-reports
 
       - store_artifacts:
-          path: lambda-java-counter-report/target/lambda-java-counter-report-1.0-SNAPSHOT.jar
+          path: ./lambda-java-counter-report-1.0-SNAPSHOT.jar
 
       - persist_to_workspace:
-          root: lambda-java-counter-report/target/
+          root: .
           paths:
-            - lambda-java-counter-report-1.0-SNAPSHOT.jar
+            - ./lambda-java-counter-report-1.0-SNAPSHOT.jar
 
 workflows:
   build-test-deploy:

@@ -1,13 +1,13 @@
 ## GET Counter description
-GET https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter?id=1
+GET https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter?id=1
 
 ### GET Consumption report
 
-GET https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/consumption_report?duration=20h
+GET https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/consumption_report?duration=20h
 
 ### Post requests for different villages
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "1","amount": 10}
 
@@ -18,7 +18,7 @@ POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_cou
 <> 2019-09-12T113329.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "1","amount": 111}
 
@@ -26,14 +26,14 @@ POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_cou
 <> 2019-09-12T114119.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "1","amount": 1422}
 
 <> 2019-09-13T120033-1.200.json
 <> 2019-09-12T114123.200.json
 ###
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "2","amount": 1}
 
@@ -41,40 +41,40 @@ POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_cou
 <> 2019-09-12T114125.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "2","amount": 7}
 
 <> 2019-09-12T114126.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "2","amount": 13}
 
 <> 2019-09-12T114128.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "10","amount": 11}
 
 <> 2019-09-12T114130.200.json
 ###
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "10","amount": 14}
 
 <> 2019-09-12T114131.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "10","amount": 21}
 
 <> 2019-09-12T114135.200.json
 ###
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "10","amount": 53}
 
@@ -82,13 +82,13 @@ POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_cou
 <> 2019-09-12T114137.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "20","amount": 313}
 
 <> 2019-09-12T114139.200.json
 ###
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "20","amount": 110}
 
@@ -97,38 +97,38 @@ POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_cou
 <> 2019-09-12T114140.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "20","amount": 663}
 
 <> 2019-09-13T120110.200.json
 <> 2019-09-12T114144.200.json
 ###
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "20","amount": 218}
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "30","amount": 1143}
 
 <> 2019-09-12T114146.200.json
 ###
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "30","amount": 2143}
 
 <> 2019-09-12T114148.200.json
 ###
 
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "30","amount": 8113}
 
 <> 2019-09-12T114149.200.json
 ###
-POST https://nr2l6xiwzi.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
+POST https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter_callback
 
 {"counter_id": "30","amount": 3153}
 
