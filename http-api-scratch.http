@@ -1,5 +1,5 @@
 ## GET Counter description
-GET https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter?id=1
+GET https://gbbjohr2af.execute-api.us-east-2.amazonaws.com/demo/electricity_counter/counter?id=20
 
 ### GET Consumption report
 

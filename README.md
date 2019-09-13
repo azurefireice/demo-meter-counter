@@ -2,7 +2,7 @@
 
 # Demo Meter
 
-> A sample project assignment with the purpose of implementing counter for meters solution 
+> A project assignment with the purpose of implementing counter for meters solution 
 
 The project is a
  - Cloud-native application based on
@@ -16,26 +16,29 @@ The project is a
 
 ***Example response from API***
 
-[![INSERT YOUR GRAPHIC HERE](example1.jpg)]()
+    Consumption report:
 
-- Most people will glance at your `README`, *maybe* star it, and leave
-- Ergo, people should understand instantly what your project is about based on your repo
+[![ConsumptionReport](scr1.png)]()
+
+    Village Info:
+
+[![VillageInfo](scr2.png)]()
+
+---
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Features](#features)
-- [Contributing](#contributing)
+- [What could be improved](#What could be improved)
 - [Team](#team)
-- [FAQ](#faq)
-- [Support](#support)
 - [License](#license)
 
 ---
 
 ## Installation
 
-- All CICD deployement instructions are contained in [config.yml](.circleci/config.yml)
+- All CICD deployment instructions are contained in [config.yml](.circleci/config.yml)
 - Set up AWS credentials in circleci project settings
 - Enable usage of 3-rd party orbs
 - You are ready to go
@@ -58,7 +61,6 @@ The project was developed in Intellij Idea IDE. In order to build and deploy it 
 ```shell
 $ mvn package
 ```
-
 
 1. Create s3 bucket and DynamoDB table manually before doing terraform init. Please create main index for table called "LockID'
 specify it in [main.tf](terraform/main.tf)
@@ -138,15 +140,15 @@ At the current state there are lot of improvements that can be done. Here are so
     2. Introduce Layers
     3. Introduce Dependency Injection
     4. "Serverless" framework
-5. Dynamodb
+5. DynamoDB
     1. Biggest issue is generating report. Currently it is implemented as plain scan of table with joining with other table.
     This introduces bottleneck when data starts to grow. Solution here is using **CQRS** approach to *stream* and *aggregate* data
     to denormalized form, this way report retrieval time will be constant.
     2. More refined codebase in lambda with DynamoDB SDK
-6. Staging environment
+6. Local / Staging environment
 7. Multi region
 8. Proper exception handling on API side
-9. Add CRUD or management for vilalges, as currently they are static and introduce consistency issue
+9. Add CRUD or management for villages, as currently they are static and introduce consistency issue
     (it is possible to get report with only counter id, not a name in it)
 
 
@@ -166,7 +168,3 @@ At the current state there are lot of improvements that can be done. Here are so
 - **[GPL-3.0 license](LICENSE)**
 
 - Copyright 2019 © Andrii Gryshchenko
-
-05O52JQRS62NED1EIQ2Q1SCD7FVV4KQNSO5AEMVJF66Q9ASUAAJG
-
-3BF1S0DIA4126R567HF7226AQRVV4KQNSO5AEMVJF66Q9ASUAAJG
