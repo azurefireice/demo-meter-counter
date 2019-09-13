@@ -14,11 +14,6 @@ variable "region" {
   default = "us-east-2"
 }
 
-provider "aws" {
-  region  = var.region
-  profile = "Azure"
-}
-
 resource "aws_lambda_function" "counter_callback" {
   filename      = local.callback_lambda_filepath
   function_name = "meter-counter-callback-processor"

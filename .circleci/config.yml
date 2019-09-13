@@ -121,7 +121,6 @@ workflows:
               only: master
           infrastructure_dir: terraform
           name: tf-init
-          save-workspace: true
       - terraform-orb/plan:
           terraform_version: 0.12.8
           environment: prod
@@ -140,11 +139,14 @@ workflows:
           requires:
             - tf-plan
           type: approval
+          filters:
+            branches:
+              only: master
       - terraform-orb/apply:
           terraform_version: 0.12.8
-          environment: prod
           auto_approve: true
           attach-workspace: true
+          environment: prod
           filters:
             branches:
               only: master
