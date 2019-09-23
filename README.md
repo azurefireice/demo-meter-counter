@@ -29,7 +29,7 @@ The project is a
 ## Table of Contents
 
 - [Installation](#installation)
-- [Features](#features)
+- [Usage](#usage-optional)
 - [What could be improved](#What could be improved)
 - [Team](#team)
 - [License](#license)
@@ -91,8 +91,6 @@ POST https://l7dgftd3ja.execute-api.us-east-2.amazonaws.com/demo/electricity_cou
 
 ---
 
-## Features
-
 ## Usage (Optional)
 Deployment provides set of endpoints:
 Please see [http-api-scratch.http](http-api-scratch.http) for some reference
@@ -140,6 +138,7 @@ At the current state there are lot of improvements that can be done. Here are so
     2. Introduce Layers
     3. Introduce Dependency Injection
     4. "Serverless" framework
+    5. Reduce "cold lambda" startup time
 5. DynamoDB
     1. Biggest issue is generating report. Currently it is implemented as plain scan of table with joining with other table.
     This introduces bottleneck when data starts to grow. Solution here is using **CQRS** approach to *stream* and *aggregate* data
